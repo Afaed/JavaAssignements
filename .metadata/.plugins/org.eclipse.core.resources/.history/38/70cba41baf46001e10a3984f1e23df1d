@@ -1,0 +1,13 @@
+package LabExercise2;
+
+public class CDAcoount extends Account {
+	
+	private int duration;
+	private double CDAnnualInterestRate;
+	
+	public CDAccount(int duration, double CDAunnualInterestRate) {
+		super();
+		
+		
+	}
+}
