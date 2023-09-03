@@ -1,0 +1,53 @@
+package LabExercise2;
+
+public class Lab_Exercise_2_Test {
+
+    public static void main(String[] args) {
+        Account[] account = new Account[5];
+
+        int id = 1000;
+        double balance = 1000;
+        int duration = 3;
+        double interestRate = 3.0;
+
+        for (int i = 0; i < account.length; i++) {
+            account[i] = new Account(id, balance);
+            
+            CDAccount cdAccount = new CDAccount(id, balance, 6, interestRate);
+            account[i].setAnnualInterestRate(interestRate);
+            
+            // Print account information
+            
+            System.out.println("Account ID: " + account[i].getID());
+			System.out.println("Initial Balance: $" + account[i].getBalance());
+			
+            System.out.println("Monthly Interest: " + account[i].getMonthlyInterest());
+    		
+    		System.out.println("New Balance: $" + (account[i].getBalance() + account[i].getMonthlyInterest()));
+    		System.out.println("Date Created: " + account[i].getDate());
+    		
+    		
+            id += 1000;
+            balance += 1000;
+            interestRate +=.5;
+            
+            System.out.println();
+
+            for (int j = 1; j < duration + 1; j++) {
+                // Print mature balance for each month
+                double CDBal = cdAccount.getMatureBalance();
+                
+                System.out.println("Month " + j + " " + CDBal);
+
+                if (j >= duration) {
+                    System.out.println();
+                    cdAccount.Withdraw(CDBal);
+                    cdAccount.Deposit(CDBal);
+                    System.out.println();
+                }
+            }
+
+            duration += 3;
+        }
+    }
+}

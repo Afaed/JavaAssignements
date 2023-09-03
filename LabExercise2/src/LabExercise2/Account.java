@@ -7,7 +7,7 @@ package LabExercise2;
 
 public class Account {
 	
-	private int id = 0;
+	protected int id = 0;
 	private double balance = 0.0;
 	private java.util.Date dateCreated;
 	private double annualInterestRate = 0.0;

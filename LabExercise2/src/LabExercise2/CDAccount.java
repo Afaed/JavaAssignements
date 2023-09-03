@@ -18,7 +18,7 @@ public class CDAccount extends Account {
 	
 	public int getDuration(int duration) {
 		
-		return this.duration = duration;
+		 return this.duration = duration;
 		
 	}
 	
@@ -42,7 +42,7 @@ public class CDAccount extends Account {
 	
 	public double getMonthlyInterestRate() {
 		
-		return super.getMonthlyInterestRate();
+		return (CDAnnualInterestRate / 100) / 12;
 	}
 	
 	
@@ -70,10 +70,20 @@ public class CDAccount extends Account {
 				+ "You may open a new one.");
 	}
 	
-	public double getMatureBalance(){
+	public double getMatureBalance() {
+        double matureBalance = getBalance() * Math.pow((1 + getMonthlyInterestRate() / 100), duration);
+        return matureBalance;
+	}
+	
+	@Override
+	
+	public String toString(){
 		
-		
-		return super.getBalance() * Math.pow((1 +getCDAnnualInterestRate(CDAnnualInterestRate / 100 )), (duration));
+		return "Account ID: " + id + "\n" 
+		+ "Initial Balance: " +  getBalance() + "\n"
+		+ "Mature Balance: " + getMatureBalance() + "\n"
+		+ "Rate: " + CDAnnualInterestRate + "\n"
+		+ "Date Created: " + getDate();
 		
 	}
 }
