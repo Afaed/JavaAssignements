@@ -62,7 +62,9 @@ public class CDAccount extends Account {
 				+ "You need to close this CD account.");
 	}
 	
-	final void Deposit() {
+	@Override
+	
+	final void Deposit(double amount) {
 		
 		System.out.println("You cannot make any additional deposits to a CD account. "
 				+ "You may open a new one.");
@@ -71,7 +73,7 @@ public class CDAccount extends Account {
 	public double getMatureBalance(){
 		
 		
-		return super.getBalance() * Math.pow((1 + CDAnnualInterestRate / 12 ), (duration));
+		return super.getBalance() * Math.pow((1 +getCDAnnualInterestRate(CDAnnualInterestRate / 100 )), (duration));
 		
 	}
 }

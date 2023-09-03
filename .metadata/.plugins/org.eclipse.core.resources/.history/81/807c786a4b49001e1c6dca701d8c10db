@@ -1,0 +1,53 @@
+package edu.dvccomsc256jc;
+
+public class Course {
+	
+	private String courseName, instructor, student;
+	private String [] studentList;
+	int capacity = 16, numberOfStudents;
+	
+	public Course(String name) {
+		this.courseName = name;
+	}
+	
+	public Course(String name, String instructor) {
+		this.instructor = instructor;
+		this.student = name;
+	}
+	
+	public String getInstructor() {
+		return this.instructor;
+	}
+	
+	public String getCourseName() {
+		return this.courseName;
+	}
+	
+	public int getNumberOfStuidnets() {
+		return this.numberOfStudents;
+	}
+	
+	public void addInstructor(String instructor) {
+		this.instructor = instructor;
+	}
+	
+	public void addStudent(String student) {
+			int i = 0;
+			
+			studentList[i] = student; 
+			
+			i++;
+			
+	}
+	
+	public void dropStudent(String student) {
+		
+	}
+	
+	public void print(){
+		
+		System.out.println(studentList);
+	}
+	
+	public void clear() {}
+}
