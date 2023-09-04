@@ -1,0 +1,173 @@
+package edu.dvccomsc256jc;
+
+import java.util.Arrays;
+
+public class Course {
+	
+	private String courseName, instructor;
+	private int capacity = 16, numberOfStudents;
+	private String [] studentList;
+	
+	public Course() {
+		
+		courseName = "";
+
+		numberOfStudents = 0;
+
+		capacity = 16;
+
+		studentList = new String[16];
+		
+	}
+	
+	public Course(String name) {
+		
+		courseName = name;
+		
+		numberOfStudents = 0;
+
+		studentList = new String[16];
+	}
+	
+	public Course(String name, String instructor) {
+		
+		this.instructor = instructor;
+		
+		courseName = name;
+		
+		numberOfStudents = 0;
+
+		capacity = 16;
+
+		studentList = new String[16];
+		
+	}
+	
+	public String getInstructor() {
+		return this.instructor;
+	}
+	
+	public String getCourseName() {
+		return this.courseName;
+	}
+	
+	public int getNumberOfStuidnets(String student) {
+		
+		return this.numberOfStudents;
+		
+	}
+	
+	public void addInstructor(String instructor) {
+		this.instructor = instructor;
+	}
+	
+	public void addStudent(String student) {
+		capacity *= 2;
+		if(capacity == numberOfStudents)
+		{
+	
+		
+		String temp[] = new String[numberOfStudents];
+		
+		for(int i = 0; i < numberOfStudents; i++) 
+			{
+				temp[i] = studentList[i];
+				studentList = new String[capacity * 2];
+				studentList[i]= temp[i];
+				studentList[numberOfStudents] = student;
+				numberOfStudents++;
+			}
+		}
+		else
+		{
+		studentList[numberOfStudents] = student;
+		numberOfStudents++;
+		}
+			
+	}
+	
+	public void dropStudent(String student) {
+
+	// To store found status
+
+	int i = -1;
+
+	if(numberOfStudents == 0)
+	System.out.print("\n No students available to drop");
+	
+	else
+	{
+
+		for(int c = 0; c < numberOfStudents; c++)
+			{
+
+			if(studentList[c].compareTo(student) == 0) {
+
+	for(int d = c; d < numberOfStudents; d++) {
+
+		studentList[d] = studentList[d + 1];
+
+		numberOfStudents--;
+
+		i = c;
+				}
+
+			}	
+	}
+
+	if(i == -1) {
+
+	System.out.print("\n No students available with name "
+
+	+ student);
+
+		}
+	}
+}
+
+	public void print(){
+		
+		String temp [] = new String[numberOfStudents];
+		
+		if(numberOfStudents == 0) {
+			System.out.println("No students in the list.");
+		} else {
+			System.out.println("====================================");
+			System.out.println("Course Name: " + courseName);
+			System.out.println("Taught by: " + instructor);
+			System.out.println("There are/is: " + numberOfStudents + " enrolled in the course");
+			
+			for(int i = 0; i < studentList.length; i++) {
+				if (studentList[i] != null) {
+					temp[i] = studentList[i];
+				}
+			}
+			System.out.println("This is the list of students: " + Arrays.toString(temp));
+			
+		}
+	}
+	
+	public void clear() {
+		
+		String temp [] = new String[numberOfStudents];
+		int length = studentList.length;
+		for(int i = 0; i < length; i++) {
+			if (studentList[i] != null) {
+				temp[i] = "";
+				length--;
+			}
+		}
+		
+		if(numberOfStudents == 0) {
+			System.out.println("No students in the list.");
+		} else {
+			System.out.println("====================================");
+			System.out.println("Course Name: " + courseName);
+			System.out.println("Taught by: " + instructor);
+			System.out.println("There are/is: " + numberOfStudents + " enrolled in the course");
+			
+			System.out.println("This is the list of students: " + Arrays.toString(temp));
+			
+			}
+		}
+	}

@@ -1,0 +1,36 @@
+package edu.dvccomsc256jc;
+
+import java.util.Scanner;
+
+public class Lab_Exercise_1_2 {
+	
+	public static void main (String [] args) {
+		
+		Scanner input = new Scanner(System.in);
+		Course course = new Course("Comsci");
+		
+		course.addInstructor("David Lai");
+		
+		course.addStudent("Rod");
+		course.addStudent("Leo");
+		course.addStudent("Joe");
+		course.addStudent("Timmy");
+		course.addStudent("Ralph");
+		course.addStudent("Joey");
+		
+		course.print();
+		
+		System.out.println();
+		
+		System.out.println("List of students after removal: ");
+		course.dropStudent("Joey");
+		
+		course.print();
+		
+		System.out.println();
+		
+		System.out.println("List of students aftr calling clear()");
+		
+		course.clear();
+	}
+}

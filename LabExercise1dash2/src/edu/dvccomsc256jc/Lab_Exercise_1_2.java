@@ -1,27 +1,50 @@
 package edu.dvccomsc256jc;
 
-import javax.swing.JOptionPane;
-
 public class Lab_Exercise_1_2 {
 	
 	public static void main (String [] args) {
 		
-		String nameIn, instructorIn, studentIn, in, out;
+		Course course = new Course("Comsci");
 		
-		in = JOptionPane.showInputDialog("Enter insructor name");
-		instructorIn = in;
-		in = JOptionPane.showInputDialog("Enter course name"); 
-		nameIn = in;
+		course.addInstructor("David Lai");
+		
+
+		course.addStudent("Rod");
+	
+		course.addStudent("Leo");
+	
+		course.addStudent("Joey");
+
+		course.addStudent("Timmy");
+
+		course.addStudent("James Bonham");
+
+		course.addStudent("Mick Fleetwood");
+
+		course.addStudent("Seline");
+	
+		course.addStudent("Britanny");
+		course.addStudent("Bowser");
+		course.addStudent("Robert Plant");
+		course.addStudent("Tyler");
+		course.addStudent("Boston");
+		
+		course.addStudent("Santos");
+		course.addStudent("Mikey");
+		course.addStudent("Rebecca");
+		course.addStudent("Sam");
+		course.addStudent("Claude");
+		
+		course.dropStudent("Joey");
 		
 		
-		Course course = new Course(nameIn, instructorIn);
-		
-		studentIn = "John";
-		course.addStudent(studentIn);
-		
+		System.out.println();
 		course.print();
 		
+		System.out.println();
 		
+		System.out.println("List of students after calling clear()");
 		
-	}
+		course.clear();
+}
 }

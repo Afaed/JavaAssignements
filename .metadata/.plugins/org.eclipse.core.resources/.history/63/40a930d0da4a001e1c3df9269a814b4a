@@ -1,0 +1,49 @@
+package edu.dvccomsc256jc;
+
+public class Lab_Exercise_1_2 {
+	
+	public static void main (String [] args) {
+		
+		Course course = new Course("Comsci");
+		
+		course.addInstructor("David Lai");
+		
+		//1
+		course.addStudent("Rod");
+		//2
+		course.addStudent("Leo");
+		//3
+		course.addStudent("Joey");
+		//4
+		course.addStudent("Timmy");
+		//5
+//		course.addStudent("James Bonham");
+//		//6
+//		course.addStudent("Mick Fleetwood");
+//		//7
+//		course.addStudent("Seline");
+		//8
+//		course.addStudent("Britanny");
+//		//9
+//		course.addStudent("Bowser");
+//		course.addStudent("Robert Plant");
+//		course.addStudent("Tyler");
+//		course.addStudent("Boston");
+		course.dropStudent("Joey");
+		course.dropStudent("Seline");
+		System.out.println();
+//		course.addStudent("Santos");
+//		course.addStudent("Mikey");
+//		course.addStudent("Rebecca");
+//		course.addStudent("Sam");
+//		course.addStudent("Claude");
+		
+		course.print();
+		
+		System.out.println();
+		
+		System.out.println("List of students after calling clear()");
+		
+		course.clear();
+}
+}
