@@ -79,16 +79,11 @@ public class CDAccount extends Account {
 	
 	public String toString(){
 		
-		return "Account ID: " + this.id + "\n" 
-		+ "Initial Balance: " +  this.getBalance() + "\n"
-		+ "Mature Balance: " + this.getMatureBalance() + "\n"
-		+ "Rate: " + this.CDAnnualInterestRate  + "\n"
+		return "Account ID: " + id + "\n" 
+		+ "Initial Balance: " +  getBalance() + "\n"
+		+ "Mature Balance: " + getMatureBalance() + "\n"
+		+ "Rate: " + CDAnnualInterestRate + "\n"
 		+ "Date Created: " + getDate();
-		
-	}
-	
-	public void displayMonthlyInterests() {
-		
 		
 	}
 }

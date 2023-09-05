@@ -22,13 +22,11 @@ public class Lab_Exercise_2_Test {
             cdAccounts[i] = new CDAccount(id, balance, duration, annualInterestRate);
 
             // Display account information
-            
-            cdAccounts[i].toString();
-//            System.out.println("Account ID: " + cdAccounts[i].getID());
-//            System.out.println("Initial Balance: $" + cdAccounts[i].getBalance());
-//            System.out.println("Rate: " + annualInterestRate + "%");
-//            System.out.println("Date Created: " + cdAccounts[i].getDate());
-//            System.out.println("Mature Balance: $" + cdAccounts[i].getMatureBalance());
+            System.out.println("Account ID: " + cdAccounts[i].getID());
+            System.out.println("Initial Balance: $" + cdAccounts[i].getBalance());
+            System.out.println("Rate: " + annualInterestRate + "%");
+            System.out.println("Date Created: " + cdAccounts[i].getDate());
+            System.out.println("Mature Balance: $" + cdAccounts[i].getMatureBalance());
 
             // Calculate and print monthly interest for each month during the saving period
             for (int month = 1; month <= duration; month++) {

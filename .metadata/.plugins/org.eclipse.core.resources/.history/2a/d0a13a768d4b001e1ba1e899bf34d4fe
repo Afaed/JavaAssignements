@@ -86,9 +86,4 @@ public class CDAccount extends Account {
 		+ "Date Created: " + getDate();
 		
 	}
-	
-	public void displayMonthlyInterests() {
-		
-		
-	}
 }

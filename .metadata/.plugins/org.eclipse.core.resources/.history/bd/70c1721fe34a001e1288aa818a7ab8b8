@@ -1,0 +1,421 @@
+package edu.dvccomsc256jc;
+
+import java.util.Scanner;
+
+// Defines a class to store Course information
+
+class Course
+
+{
+
+// Instance variables to store course information
+
+String courseName;
+
+String instructor;
+
+String [] studentList;
+
+int numberOfStudents;
+
+int capacity;
+
+// Default constructor to initialize default values to
+
+// instance variables
+
+Course()
+
+{
+
+courseName = "";
+
+numberOfStudents = 0;
+
+// Default student capacity is 16
+
+capacity = 16;
+
+// Dynamically allocates memory to store students name
+
+studentList = new String[16];
+
+}// End of default constructor
+
+// Parameterized constructor to assign course name to
+
+// instance variable
+
+Course(String name)
+
+{
+
+courseName = name;
+
+// Default student capacity is 16
+
+capacity = 16;
+
+numberOfStudents = 0;
+
+studentList = new String[16];
+
+}// End of parameterized constructor
+
+// Parameterized constructor to assign course name and
+
+// instructor name to instance variable
+
+Course(String name, String instructor)
+
+{
+
+courseName = name;
+
+this.instructor = instructor;
+
+// Default student capacity is 16
+
+capacity = 16;
+
+numberOfStudents = 0;
+
+// Dynamically allocates memory to store students name
+
+studentList = new String[16];
+
+}// End of parameterized constructor
+
+// Method to return course name
+
+String getCourseName()
+
+{
+
+return courseName;
+
+}// End of method
+
+// Method to return instructor name
+
+String getInstructor()
+
+{
+
+return instructor;
+
+}// End of method
+
+// Method to set instructor name
+
+void setInstructor(String instructor)
+
+{
+
+this.instructor = instructor;
+
+}// End of method
+
+// Method to add a student to student list
+
+void addStudent(String student)
+
+{
+
+// Checks if current number of students is equals to
+
+// capacity
+
+if(numberOfStudents == capacity)
+
+{
+
+// Creates a temporary array of size equals to
+
+// number of students enrolled
+
+String temp [] = new String[numberOfStudents];
+
+// Loops till number of students enrolled
+
+for(int c = 0; c < numberOfStudents; c++)
+
+// Assigns each student name from the student list
+
+// to temporary array
+
+temp[c] = studentList[c];
+
+// Double the capacity of the student list
+
+studentList = new String[capacity * 2];
+
+// Double the capacity
+
+capacity *= 2;
+
+// Loops till number of students enrolled
+
+for(int c = 0; c < numberOfStudents; c++)
+
+// Assigns each student name from temporary array
+
+// to student list
+
+studentList[c] = temp[c];
+
+// Assign the student name to student list
+
+// at numberOfStudents index position
+
+studentList[numberOfStudents] = student;
+
+// Increases the number of students counter by one
+
+numberOfStudents++;
+
+}// End of if condition
+
+// Otherwise current number of students is
+
+// less than the capacity
+
+else
+
+{
+
+// Assign the student name to student list
+
+// at numberOfStudents index position
+
+studentList[numberOfStudents] = student;
+
+// Increases the number of students counter by one
+
+numberOfStudents++;
+
+}// End of else
+
+}// End of method
+
+// Method to remove a student from student list
+
+void dropStudent(String student)
+
+{
+
+// To store found status
+
+int f = -1;
+
+// Checks if number of students is 0 then empty student list
+
+if(numberOfStudents == 0)
+
+System.out.print("\n No students available to drop");
+
+// Otherwise students available
+
+else
+
+{
+
+// Loops till number of students enrolled
+
+for(int c = 0; c < numberOfStudents; c++)
+
+{
+
+// Checks if current student name is equals to
+
+// parameter student name
+
+if(studentList[c].compareTo(student) == 0)
+
+{
+
+// Loops from found position to end of the list
+
+for(int d = c; d < numberOfStudents; d++)
+
+// Shift each student to left
+
+studentList[d] = studentList[d + 1];
+
+// Decrease the number of students counter by one
+
+numberOfStudents--;
+
+// Assigns the found index position
+
+f = c;
+
+}// End of if condition
+
+}// End of for loop
+
+}// End of else
+
+// Checks if f value is -1 student name not found
+
+if(f == -1)
+
+System.out.print("\n No students available with name "
+
++ student);
+
+}// End of method
+
+// Method to return student list
+
+String [] getStudents()
+
+{
+
+return studentList;
+
+}// End of method
+
+// Method to return number of students
+
+int getNumberOfStudents()
+
+{
+
+return numberOfStudents;
+
+}// End of method
+
+// Method to print course information
+
+void print()
+
+{
+
+// Checks if number of students is 0 then empty student list
+
+if(numberOfStudents == 0)
+
+System.out.print("\n No students available to drop");
+
+// Otherwise students available
+
+else
+
+{
+
+System.out.print("\n\n*********** Course Information *********** ");
+
+System.out.print("\n Course Name: " + courseName +
+
+"\n Instructor Name: " + instructor +
+
+"\n Number of Students Enrolled: " +
+
+numberOfStudents);
+
+System.out.print("\n\n \t\tStudents Enrolled ");
+
+// Loops till number of students enrolled
+
+// to display their names
+
+for(int c = 0; c < numberOfStudents; c++)
+
+System.out.print("\n " + studentList[c]);
+
+}// End of else
+
+}// End of method
+
+}// End of class
+
+// Defines the driver class
+
+public class AdvJava1_test
+
+{
+
+// main method definition
+
+public static void main(String ss[])
+
+{
+
+// Creates a class Course using parameterized constructor
+
+// by passing course name and instructor name
+
+Course course = new Course("Java", "Pyari Mohan Sahu");
+
+// Scanner calss object created
+
+Scanner sc = new Scanner(System.in);
+
+// To store user choice
+
+int ch;
+
+// Loops till user choice is not 4
+
+do
+
+{
+
+// Displays menu
+
+System.out.print("\n\n*********** MENU ***********");
+
+System.out.print("\n 1 Add Student \n 2 Drop Student" +
+
+"\n 3 Display \n 4 Exit");
+
+// Accepts user choice
+
+System.out.print("\n Enter your choice: ");
+
+ch = sc.nextInt();
+
+// Checks user choice and calls appropriate method
+
+switch(ch)
+
+{
+
+case 1:
+
+System.out.print("\n Enter student name to add: ");
+
+course.addStudent(sc.next());
+
+break;
+
+case 2:
+
+System.out.print("\n Enter student name to drop: ");
+
+course.dropStudent(sc.next());
+
+break;
+
+case 3:
+
+course.print();
+
+break;
+
+case 4:
+
+System.exit(0);
+
+default:
+
+System.out.print("\n Invalid choice!!");
+
+}// End of switch case
+
+}while(true); // End of do - while loop
+
+}// End of main method
+
+}// End of driver class
