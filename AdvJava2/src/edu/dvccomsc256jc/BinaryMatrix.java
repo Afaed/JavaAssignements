@@ -5,28 +5,26 @@
 package edu.dvccomsc256jc;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class BinaryMatrix {
 
-	int input, max, min;
+	int random, input;
 	ArrayList <Integer> row = new ArrayList<Integer>();
 	ArrayList <Integer> column = new ArrayList<Integer>();
 	
-	int random = (int) (Math.random() * ((max-min) + 1));
-	
-	public BinaryMatrix(int input, int min, int max){
+	public BinaryMatrix(int input){
 		
-		this.input=input;
-		this.min = min;
-		this.max = max;
+		this.input = input;
+		//this.random = random;
 		
 	}
-	
-	public ArrayList<Integer> addRowNum(int input, int min, int max){
+
+	public ArrayList<Integer> addRowNum(int input){
 		
 		for(int i = 0; i < input; i++){
-			int random = (int) (Math.random() * ((max-min) + 1));
-			
+			int random = (int) (Math.random() * ((1-0) + 1));
 			row.add(random);
 		}
 		
@@ -34,11 +32,11 @@ public class BinaryMatrix {
 		
 		}
 	
-	public ArrayList<Integer> addColNum(int input, int min, int max){
+	public ArrayList<Integer> addColNum(int input){
 		for(int i = 0; i < input; i++){
-			int random = (int) (Math.random() * ((max-min) + 1));
-			
+			int random = (int) (Math.random() * ((1-0) + 1));
 			column.add(random);
+			
 		}
 		
 		return column;
@@ -66,5 +64,26 @@ public class BinaryMatrix {
 		}
 		
 		return ones;
+	}
+	
+	
+	public String rowToString() {
+		StringBuilder result = new StringBuilder("");
+		
+		for(int i = 0; i < row.size(); i++) {
+			result.append(row.get(i));
+		}
+		
+		return result.toString();
+	}
+	
+	public String colToString() {
+		StringBuilder result = new StringBuilder("");
+		
+		for(int i = 0; i < column.size(); i++) {
+			result.append(column.get(i));
+		}
+		
+		return result.toString();
 	}
 }
